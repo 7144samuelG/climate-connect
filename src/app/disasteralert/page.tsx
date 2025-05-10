@@ -1,11 +1,13 @@
 import { SideBar } from "../(home)/sidebar";
-import DisasterAlertForm from "./alert";
+import { Alertform } from "./alertform";
 
-export default function DisasterAlerts(){
-    return(
-        <div className=" flex min-h-screen h-full w-full">
-                    <SideBar/>
-                    <DisasterAlertForm/>
-        </div>
-    )
+export default function DisasterAlerts() {
+  return (
+    <div className=" flex max-h-screen  w-full">
+      <SideBar />
+      <div className="flex-1 ">
+        <Alertform/>
+      </div>
+    </div>
+  );
 }

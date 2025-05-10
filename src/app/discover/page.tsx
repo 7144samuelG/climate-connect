@@ -16,7 +16,7 @@ export default function DiscoverCommunities() {
   return (
     <div className=" min-h-screen flex ">
       <SideBar/>
-      <div className="mt-16">
+      <div className="mt-16 flex-1">
         <div className="">
 
         <SearchInput/>

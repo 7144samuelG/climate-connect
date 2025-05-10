@@ -4,7 +4,7 @@ import {format} from "date-fns"
 import { useQuery } from 'convex/react'
 import { Id } from '../../../convex/_generated/dataModel'
 import { api } from '../../../convex/_generated/api'
-import { Spinner } from './spinner'
+import { LoaderIcon } from 'lucide-react'
 
 interface Props{
   waitingresponse:boolean,
@@ -45,7 +45,7 @@ function ChatMessages({waitingresponse, id}: Props) {
       ))}
       {waitingresponse && (
         <div className={`p-4 max-w-[90%] bg-primary-foreground text-black self-end rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 ease-in-out`}>
-          <Spinner/>
+          <LoaderIcon className="size-6 text-muted-foreground animate-spin"/>
         </div>
       )}
       <div ref={messageRef} />

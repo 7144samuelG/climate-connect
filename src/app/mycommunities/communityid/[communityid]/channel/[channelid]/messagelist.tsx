@@ -33,8 +33,6 @@ export const MessageList = ({
   channelCreationTime,
   channelName,
   data,
-  memberImage,
-  memberName,
   variant = "channel",
   loadMore,
 }: MessageListProps) => {

@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useState } from "react";
 import { Id } from "../../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
@@ -18,7 +18,6 @@ interface ChatInterfaceProps
 export const ChatInterface = ({id}:ChatInterfaceProps) => {
   const [input, setInput] = useState("");
   const[isLoading,setIsLoading]=useState(false);
-  const messageIndexRef=useRef<HTMLDivElement>(null);
   const create=useMutation(api.note.createNote);
 
   const router=useRouter()

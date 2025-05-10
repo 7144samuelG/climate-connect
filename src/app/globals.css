@@ -198,3 +198,6 @@ html,body,:root{
   scrollbar-width: thin;
   scrollbar-color: #dcdcdc #f8f8f8;
 }
+.hk{
+  height:95vh !important;
+}

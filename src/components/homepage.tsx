@@ -1,6 +1,5 @@
 "use client";
 import { SignIn } from "@clerk/clerk-react";
-import { Button } from "./ui/button";
 import { AlertTriangle, Info, Bell, Users } from "lucide-react";
 
 const featuresData = [

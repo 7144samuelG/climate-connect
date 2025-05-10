@@ -7,11 +7,10 @@ import {
   AuthLoading,
   useMutation,
 } from "convex/react";
-import { ClerkProvider, SignIn, useAuth, useUser } from "@clerk/clerk-react";
+import { ClerkProvider, useAuth, useUser } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect} from "react";
 import { Screenloader } from "./screen-loader";
-import { Id } from "../../convex/_generated/dataModel";
 import { api } from "../../convex/_generated/api";
 import { HomePage } from "./homepage";
 
@@ -38,17 +37,14 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
 }
 function UserSync({ children }: { children: ReactNode }) {
   const { user } = useUser();
-  const storeUser = useMutation(api.users.storeuser); // Make sure this matches your mutation name
-  const [userId, setUserId] = useState<Id<"users"> | null>(null);
-
+  const storeUser = useMutation(api.users.storeuser);
   useEffect(() => {
     if (!Authenticated) {
       return;
     }
 
     async function syncUser() {
-      const id = await storeUser();
-      setUserId(id);
+     await storeUser();
     }
 
     syncUser();

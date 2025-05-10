@@ -104,7 +104,7 @@ export const MyCommunitiesSideBar = () => {
                 <DropdownMenuGroup>
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger
-                      onClick={(e) =>
+                      onClick={() =>
                         router.push(
                           `/mycommunities/communityid/${community._id}`
                         )

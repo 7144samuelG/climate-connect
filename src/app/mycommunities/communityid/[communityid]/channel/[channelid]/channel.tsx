@@ -27,7 +27,7 @@ export const GetChannels = () => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-start px-2">
       {channels.map((chan) => (
         <div className="flex items-center space-x-1 px-3" key={chan._id}>
           <HashIcon className="size-4" />

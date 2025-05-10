@@ -57,16 +57,34 @@ export const getallchannels = query({
     if (!user) {
       throw new ConvexError("unauthorized");
     }
-
+    let paginatedResults;
     if (search) {
-      return await ctx.db
+      paginatedResults = await ctx.db
         .query("communities")
         .withSearchIndex("search_name", (q) =>
           q.search("name", search).eq("name", search)
         )
         .paginate(paginationOpts);
+    } else {
+      paginatedResults = await ctx.db.query("communities").paginate(paginationOpts);
+    }
+    const pageWithImages = {
+      ...paginatedResults,
+      page: await Promise.all(
+        paginatedResults.page.map(async (community) => {
+          if (community.imageUrl) {
+            const avatarUrl = await ctx.storage.getUrl(community.imageUrl);
+            return {
+              ...community,
+              avatarUrl,
+            };
+          }
+          return community;
+        })
+      ),
     };
-    return await ctx.db.query("communities").paginate(paginationOpts);
+
+    return pageWithImages;
   },
 });
 

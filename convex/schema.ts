@@ -74,11 +74,9 @@ export default defineSchema({
     .index("by_message_id", ["messageId"])
     .index("by_member_id", ["memberId"]),
   alerts: defineTable({
-    id: v.string(),
-    loacation: v.string(),
+    id:v.string(),
     city: v.string(),
     country: v.string(),
-    zip: v.string(),
     phonenumber: v.string(),
   })
     .index("by_country", ["country"])

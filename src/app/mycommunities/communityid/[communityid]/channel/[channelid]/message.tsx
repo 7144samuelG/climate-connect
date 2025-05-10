@@ -74,7 +74,7 @@ export const Message = ({
         closeMessage();
       }
       toast.success("message deleted")
-    }).catch((error)=>{
+    }).catch(()=>{
       toast.error("failed to delete message")
     })
    };
@@ -82,7 +82,7 @@ export const Message = ({
     reaction({
       messageId:id,
       value
-    }).catch((error)=>{
+    }).catch(()=>{
       toast.error("failed to add reaction")
     })
    }

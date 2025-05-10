@@ -78,7 +78,7 @@ export const ChatInput = ()=>{
                key={editorkey}
                disabled={isPending}
                innerRef={editorRef}
-               placeholder="tytytyty"
+               placeholder="type your message"
 
                onSubmit={handleSubmit}
              />

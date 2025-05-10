@@ -20,7 +20,7 @@ export const SideBar = () => {
       <SideBarButton
         icon={TrainFrontTunnel}
         path="chatbot"
-        label="cAi"
+        label="chatbot"
         isActive={pathname.includes("chatbot")}
       />
      
