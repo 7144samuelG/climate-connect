@@ -218,7 +218,7 @@ export const Join=mutation({
                 return communityid;
             };
 
-            await ctx.db.insert("communityMembers", {
+           const id= await ctx.db.insert("communityMembers", {
               communityId:communityid,
               userId: userid.subject,
               name:userid.name ?? "Anonymous",
@@ -226,7 +226,7 @@ export const Join=mutation({
               avatar:userid.pictureUrl?? "",
               role: "member",
             });
-            return communityid;      
+            return{ communityid,id}      
     
   }
 })

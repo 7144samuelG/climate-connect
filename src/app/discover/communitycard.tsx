@@ -12,11 +12,11 @@ interface CommunityCardProps {
 export const CommunityCard = ({ community }: CommunityCardProps) => {
   const join = useMutation(api.communities.Join);
   const router = useRouter();
-  const handleCommunities = (id: Id<"communities">) => {
+  const handleCommunities = async(id: Id<"communities">) => {
     try {
-      const communityid = join({ communityid: id });
+      await join({ communityid: id });
 
-      router.push(`mycommunities/communityid/${communityid}`);
+      router.push(`mycommunities/communityid/${id}`);
       toast.success("welcome")
     } catch {
       toast.error("something went wrong")
