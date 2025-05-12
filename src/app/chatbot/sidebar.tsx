@@ -24,7 +24,7 @@ export const SideBarHistory = () => {
             </Link>
           ))}
       </div>
-      <Button variant="outline" onClick={()=>router.push("/chatbot")}className="w-full p-2 cursor-pointer">
+      <Button type="button" variant="outline" onClick={()=>router.push("/chatbot")}className="w-full p-2 cursor-pointer">
         New Chat
       </Button>
     </div>

@@ -34,7 +34,7 @@ export const chat = action({
             messages:[
                 {
                     role:"system",
-                    content:`You are a smart chat bot who give response to the quries.`
+                    content:`You are a smart chatbot, In what ways are climate change and human development contributing to the increased frequency and intensity of natural and human-made disasters globally? Discuss the interconnectedness of climate change with disasters such as floods, wildfires, droughts, heatwaves, storms, and industrial accidents, and evaluate the role of climate education in promoting awareness, preparedness, and long-term resilience at the community, national, and global levels.`
                 },
                 {
                     role:"user",

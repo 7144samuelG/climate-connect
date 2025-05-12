@@ -6,11 +6,13 @@ import { HashIcon } from "lucide-react";
 import { Screenloader } from "@/components/screen-loader";
 import { useCommunityId } from "@/hooks/use-communityid";
 import { Members } from "./members";
+import { useRouter } from "next/navigation";
 
 export const GetChannels = () => {
   const communityid = useCommunityId();
   const channels = useQuery(api.channels.get, { communityid });
   const isloading = channels === undefined;
+  const router = useRouter();
   if (isloading) {
     return (
       <div className="h-full flex items-center justify-center">
@@ -29,12 +31,20 @@ export const GetChannels = () => {
   return (
     <div className="flex flex-col items-start px-2">
       {channels.map((chan) => (
-        <div className="flex items-center space-x-1 px-3" key={chan._id}>
+        <div
+          className="flex items-center space-x-1 px-3"
+          key={chan._id}
+          onClick={() =>
+            router.push(
+              `/mycommunities/communityid/${chan.communityId}/channel/${chan._id}`
+            )
+          }
+        >
           <HashIcon className="size-4" />
           <p className="cursor-pointer truncate">{chan.title}</p>
         </div>
       ))}
-      <Members/>
+      <Members />
     </div>
   );
 };

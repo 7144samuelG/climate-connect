@@ -32,6 +32,7 @@ export const createCommunity = mutation({
       isGeneral: true,
       createdBy: getuser.subject,
     });
+    
 
     //add owner as firtmember and admin
     await ctx.db.insert("communityMembers", {
@@ -214,7 +215,7 @@ export const Join=mutation({
             .withIndex("by_community_user",(q)=>q.eq("communityId",communityid).eq("userId",userid.subject))
             .unique();
             if(member){
-                return 
+                return communityid;
             };
 
             await ctx.db.insert("communityMembers", {

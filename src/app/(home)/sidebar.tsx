@@ -15,6 +15,7 @@ export const SideBar = () => {
       <SideBarButton
         icon={Home}
         label="Home"
+        path=""
         isActive={pathname.includes("/home")}
       />
       <SideBarButton
