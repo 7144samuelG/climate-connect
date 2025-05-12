@@ -30,7 +30,7 @@ export default function MyCommunities() {
             <Button className="cursor-pointer">create community</Button>
           </CreateNewCommunity>
           or
-          <Link href="" className="underline ">
+          <Link href="/discover" className="underline ">
             Discover communities
           </Link>
         </div>
